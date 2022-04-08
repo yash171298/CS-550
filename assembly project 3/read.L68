@@ -1,0 +1,45 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 5/1/2021 7:57:50 AM
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Title      :Read file with 68k assembly
+00000000                             3  * Written by :Yash avinash Patole
+00000000                             4  * Date       :04/30/2021
+00000000                             5  * Description:Assembly 3 project qiestion 1 reading a file using assembly 68k
+00000000                             6  *-----------------------------------------------------------
+00000000                             7     
+00001000                             8      ORG    $1000
+00001000                             9  START:                  ; first instruction of program
+00001000                            10  
+00001000                            11  * Put program code here
+00001000  43F9 00002000             12      lea  filename, a1
+00001006  303C 0033                 13      move #51, d0
+0000100A  4E4F                      14      trap #15
+0000100C                            15      
+0000100C  243C 00002059             16      move.l #filesize, d2
+00001012  43F9 00002009             17      lea buffer, a1
+00001018  303C 0035                 18      move #53, d0
+0000101C  4E4F                      19      trap #15
+0000101E                            20      
+0000101E  FFFF FFFF                 21      SIMHALT             ; halt simulator
+00002000                            22      org $2000
+00002000                            23      
+00002000                            24  * Put variables and constants here
+00002000= 79 61 73 68 2E 74 ...     25  filename    dc.b    'yash.txt',0
+00002009                            26  buffer      ds.b    80
+00002059= 50                        27  filesize    dc.b    80
+0000205A                            28      
+0000205A                            29      END    START        ; last line of source
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+BUFFER              2009
+FILENAME            2000
+FILESIZE            2059
+START               1000
